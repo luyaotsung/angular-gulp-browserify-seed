@@ -17,7 +17,7 @@
       // routes
       $routeProvider
         .when("/", {
-          templateUrl: "./partials/partial1.html",
+          templateUrl: "./view/partial1.html",
           controller: "MainController"
         })
         .otherwise({
