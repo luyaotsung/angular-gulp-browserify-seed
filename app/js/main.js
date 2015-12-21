@@ -1,32 +1,41 @@
 (function () {
 
-  'use strict';
+    'use strict';
 
-  require('angular');
-  require('angular-route');
-  require('angular-animate');
-  var mainCtrl = require('./controllers/mainctrl');
+    require('angular');
+    require('angular-route');
+    require('angular-animate');
 
-  angular.module('SampleApp', ['ngRoute', 'ngAnimate'])
+    var uibs = require('angular-ui-bootstrap');
 
-  .config([
-    '$locationProvider',
-    '$routeProvider',
-    function($locationProvider, $routeProvider) {
-      $locationProvider.hashPrefix('!');
-      // routes
-      $routeProvider
-        .when("/", {
-          templateUrl: "./view/partial1.html",
-          controller: "MainController"
-        })
-        .otherwise({
-           redirectTo: '/'
-        });
-    }
-  ])
+    var mainCtrl = require('./controllers/mainctrl');
+    var ubCtrl = require('./controllers/ubctrl');
 
-  //Load controller
-  .controller('MainController', ['$scope', mainCtrl]);
+    angular.module('SampleApp', [uibs,'ngRoute', 'ngAnimate'])
+
+    .config([
+        '$routeProvider',
+        function($routeProvider) {
+            // routes
+            $routeProvider
+
+            .when("/", {
+                templateUrl: "./view/partial1.html",
+                controller: "MainController"
+            })
+
+            .when("/UB/", {
+                templateUrl: "./view/partial2.html",
+                controller: "UBController"
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+        }
+    ])
+
+    //Load controller
+    .controller('MainController', ['$scope', mainCtrl])
+    .controller('UBController', ['$scope', mainCtrl]);
 
 }());
