@@ -35,7 +35,7 @@
     ])
 
     //Load controller
-    .controller('MainController', ['$scope', mainCtrl])
+    .controller('MainController', ['$scope','$http', mainCtrl])
     .controller('UBController', ['$scope', mainCtrl]);
 
 }());
