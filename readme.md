@@ -15,5 +15,6 @@ Be sure to read the blog posts to learn how to create this setup from scratch:
 1. Install the global requirements: `npm install -g gulp bower browserify`
 1. Install the local requirements: `npm install`
 1. Install the Bower components: `bower install`
-1. Run locally: `gulp`
-1. Create a build: `gulp build`
+1. Run locally: `gulp clean && gulp`
+1. Create a build: `gulp clean && gulp build`
+1. Commit Preparation: `gulp clean && gulp Commit`
