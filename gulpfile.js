@@ -18,6 +18,16 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter('default'))
     .pipe(jshint.reporter('fail'));
 });
+gulp.task('commit', function() {
+    gulp.src('./build')
+      .pipe(clean({force: true}));
+    gulp.src('./app/js/bundled.js')
+      .pipe(clean({force: true}));
+    gulp.src('./app/bower_components')
+      .pipe(clean({force: true}));
+    gulp.src('./node_modules')
+      .pipe(clean({force: true}));
+});
 gulp.task('clean', function() {
     gulp.src('./build')
       .pipe(clean({force: true}));
