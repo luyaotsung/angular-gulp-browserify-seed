@@ -13,8 +13,14 @@
     <link rel="stylesheet" href="./css/main.css"/>
   </head>
   <body>
+  <br>
+<div ng-controller="MenuCtrl">
+    <button type="button" class="btn btn-primary" ng-click="ROOT()">ROOT</button>
+    <button type="button" class="btn btn-primary" ng-click="TOOGLE()">TOOGLE</button>
+    <button type="button" class="btn btn-primary" ng-click="UPLOAD()">UPLOAD</button>
+</div>
+    <br> <br>
     <div class="container">
-      <h1>Angular-Gulp-Browserify-Starter</h1>
       <!-- views -->
       <div ng-view></div>
     </div>

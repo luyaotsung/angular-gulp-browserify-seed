@@ -5,28 +5,33 @@
     require('angular');
     require('angular-route');
     require('angular-animate');
+    require('angular-base64-upload');
 
     var uibs = require('angular-ui-bootstrap');
 
     var mainCtrl = require('./controllers/mainctrl');
     var ubCtrl = require('./controllers/ubctrl');
+    var uploadCtrl = require('./controllers/uploadctrl');
 
-    angular.module('SampleApp', [uibs,'ngRoute', 'ngAnimate'])
-
+    angular.module('SampleApp', [uibs,'ngRoute', 'ngAnimate','naif.base64'])
     .config([
         '$routeProvider',
-        function($routeProvider) {
+        '$httpProvider',
+        function($routeProvider,$httpProvider) {
             // routes
-            $routeProvider
 
+            $routeProvider
             .when("/", {
                 templateUrl: "./view/partial1.html",
                 controller: "MainController"
             })
-
             .when("/UB/", {
                 templateUrl: "./view/partial2.html",
                 controller: "UBController"
+            })
+            .when("/Upload/", {
+                templateUrl: "./view/upload.html",
+                controller: "UploadController"
             })
             .otherwise({
                 redirectTo: '/'
@@ -36,6 +41,10 @@
 
     //Load controller
     .controller('MainController', ['$scope','$http', mainCtrl])
-    .controller('UBController', ['$scope', mainCtrl]);
+    .controller('UBController', ['$scope', ubCtrl])
+    .controller('UploadController', ['$scope', '$http',uploadCtrl]);
+
+    var menuCtrl = require('./controllers/menuctrl');
+    angular.module('SampleApp').controller('MenuCtrl', ['$scope','$window',menuCtrl]);
 
 }());

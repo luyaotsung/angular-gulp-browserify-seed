@@ -59,7 +59,7 @@ gulp.task('copy-html-files', function () {
 gulp.task('connect', function () {
   connect.server({
     root: 'app/',
-    port: 22442
+    port: 1419
   });
 });
 gulp.task('connectDist', function () {
