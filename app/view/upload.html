@@ -1,0 +1,20 @@
+
+<br>
+<form ng-submit="submit()" >
+    <input type='file' ng-model='file' name='name' base-sixty-four-input>
+    <input type="submit" id="submit" value="Submit" />
+</form>
+
+<pre>
+File Name : {{FileName}} <br>
+File Size : {{FileSize}} <br>
+Base64 String : {{Base64String.substring(0, 30)}} <br>
+</pre>
+
+<tr ng-show="file">
+    <td>{{file.filename}}</td>
+    <td>{{file.filetype}}</td>
+    <td>{{file.filesize / 1000}}</td>
+    <td>{{file.base64.substring(0, 30)}}...</td>
+</tr>
+
