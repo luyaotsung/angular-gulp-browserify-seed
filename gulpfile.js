@@ -65,7 +65,7 @@ gulp.task('connect', function () {
 gulp.task('connectDist', function () {
   connect.server({
     root: 'build/',
-    port: 22442
+    port: 1420
   });
 });
 gulp.task('browserify', function() {
